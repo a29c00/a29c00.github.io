@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<title>Biglietto da visita</title>
+<style>
+  :root {
+    --bg: #eef2f7;
+    --card-bg: #ffffff;
+    --ink: #0f2136;
+    --ink-soft: #52708c;
+    --accent: #1d4f91;
+    --rule: #d3e0ec;
+    --shadow: rgba(15, 33, 54, 0.14);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d1520;
+      --card-bg: #ffffff;
+      --ink: #0f2136;
+      --ink-soft: #4f6c88;
+      --accent: #2a5ca8;
+      --rule: #d3e0ec;
+      --shadow: rgba(0, 0, 0, 0.6);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #0d1520;
+    --card-bg: #ffffff;
+    --ink: #0f2136;
+    --ink-soft: #4f6c88;
+    --accent: #2a5ca8;
+    --rule: #d3e0ec;
+    --shadow: rgba(0, 0, 0, 0.6);
+  }
+
+  :root[data-theme="light"] {
+    --bg: #eef2f7;
+    --card-bg: #ffffff;
+    --ink: #0f2136;
+    --ink-soft: #52708c;
+    --accent: #1d4f91;
+    --rule: #d3e0ec;
+    --shadow: rgba(15, 33, 54, 0.14);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    padding: 48px 20px;
+  }
+
+  .stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .card {
+    width: 420px;
+    aspect-ratio: 85 / 55;
+    background: var(--card-bg);
+    border-radius: 6px;
+    box-shadow: 0 18px 40px -12px var(--shadow), 0 2px 6px -1px var(--shadow);
+    padding: 26px 32px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--accent);
+  }
+
+  .identity {
+    flex: 1 0 auto;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    padding-left: 6px;
+  }
+
+  .name {
+    font-family: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+    font-size: 25px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: 0.2px;
+    line-height: 1.1;
+    text-wrap: balance;
+  }
+
+  .role {
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .company {
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    letter-spacing: 0.3px;
+    margin-top: 2px;
+  }
+
+  .divider {
+    flex-shrink: 0;
+    width: 1px;
+    background: var(--rule);
+    align-self: stretch;
+    margin: 2px 0;
+  }
+
+  .contacts {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 9px;
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    font-size: 11px;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+
+  .contacts .row {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .contacts .label {
+    font-size: 8.5px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    opacity: 0.85;
+  }
+
+  .contacts .value {
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .hint {
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    font-size: 12px;
+    color: var(--ink-soft);
+    text-align: center;
+    max-width: 340px;
+    line-height: 1.5;
+  }
+
+  .hint code {
+    background: var(--card-bg);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 1px 5px;
+    color: var(--ink);
+  }
+
+  @media print {
+    body { padding: 0; background: #fff; }
+    .hint { display: none; }
+    .card { box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="card">
+      <div class="identity">
+        <div class="name">Federico Rizzon</div>
+        <div class="role">Sistemi</div>
+        <div class="company">NEXTO Srl</div>
+      </div>
+      <div class="divider"></div>
+      <div class="contacts">
+        <div class="row">
+          <span class="label">Email</span>
+          <span class="value">federico.rizzon@nexto.eu</span>
+        </div>
+        <div class="row">
+          <span class="label">Telefono</span>
+          <span class="value">+39 346 6169 436</span>
+        </div>
+        <div class="row">
+          <span class="label">Sito</span>
+          <span class="value">www.nexto.eu</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
