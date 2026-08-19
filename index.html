@@ -2,6 +2,7 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Biglietto da visita</title>
 <style>
   :root {
@@ -55,12 +56,13 @@
   }
 
   .card {
-    width: 480px;
+    width: 100%;
+    max-width: 480px;
     aspect-ratio: 85 / 55;
     background: var(--card-bg);
     border-radius: 4px;
     box-shadow: 0 18px 40px -12px var(--shadow), 0 2px 6px -1px var(--shadow);
-    padding: 34px 38px;
+    padding: clamp(20px, 6vw, 34px) clamp(22px, 7vw, 38px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -71,7 +73,7 @@
   .logo {
     align-self: flex-end;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 34px;
+    font-size: clamp(22px, 6.5vw, 34px);
     font-weight: 900;
     font-style: italic;
     letter-spacing: 1px;
@@ -94,7 +96,7 @@
 
   .name {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 19px;
+    font-size: clamp(13px, 4vw, 19px);
     font-weight: 400;
     color: var(--ink);
   }
@@ -102,7 +104,7 @@
   .role {
     font-family: Georgia, "Times New Roman", serif;
     font-style: italic;
-    font-size: 15px;
+    font-size: clamp(11px, 3.2vw, 15px);
     font-weight: 400;
     color: var(--ink-soft);
   }
@@ -112,7 +114,7 @@
     flex-direction: column;
     gap: 3px;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 13.5px;
+    font-size: clamp(9.5px, 2.9vw, 13.5px);
     color: var(--ink);
     line-height: 1.5;
   }
